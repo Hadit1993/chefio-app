@@ -14,7 +14,6 @@ import PasswordTextFiled from '../../components/auth/PasswordTextFiled'
 import ScreenWrapper from '../../components/common/ScreenWrapper'
 
 const {
-
  container,
  title,
  description,

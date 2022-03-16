@@ -5,7 +5,7 @@ import React, { useCallback, useRef, useState } from 'react'
 import { H1, H3, P2 } from '../../components/common/AppText'
 import { authIcons } from '../../../assets/icons'
 import Button from '../../components/common/Button'
-import { SIGNUP, useAuthNavigation, VERIFICATION_CODE } from '../../navigation/AuthStack'
+import { PASSWORD_RECOVERY, SIGNUP, useAuthNavigation, VERIFICATION_CODE } from '../../navigation/AuthStack'
 import styles from '../../styles/screens/auth/signin.style'
 import { useFocusEffect } from '@react-navigation/native'
 import ScreenWrapper from '../../components/common/ScreenWrapper'
@@ -19,6 +19,7 @@ const Signin = () => {
  const navigation = useAuthNavigation()
  const navigateToSignup = () => navigation.navigate(SIGNUP)
  const navigateToVerificationCode = () => navigation.navigate(VERIFICATION_CODE)
+ const navigateToPasswordRecovery = () => navigation.navigate(PASSWORD_RECOVERY)
  const scrollRef = useRef<ScrollView>(null)
 
  const onKeyboardDidShow = () => {
@@ -42,8 +43,10 @@ const Signin = () => {
      <PasswordTextFiled containerStyle={styles.passInputContainer} />
 
 
+     <TouchableWithoutFeedback onPress={navigateToPasswordRecovery}>
+      <P2 style={styles.forgotPassword}>Forgot password?</P2>
+     </TouchableWithoutFeedback>
 
-     <P2 style={styles.forgotPassword}>Forgot password?</P2>
 
      <Button style={styles.login} title='Login' onPress={navigateToVerificationCode} />
 

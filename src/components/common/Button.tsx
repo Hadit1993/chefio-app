@@ -15,13 +15,14 @@ interface Props {
 const Button: FC<Props> = ({ title, onPress, isOutlined, color, style, leftIcon }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container, {
-      borderWidth: isOutlined ? 1 : 0,
+      borderWidth: isOutlined ? 2 : 0,
+      borderColor: isOutlined ? AppTheme.colors.Outline : 'transaparent',
       backgroundColor: isOutlined ?
         'transparent'
         : (color || AppTheme.colors.Primary)
     }, style]}>
       {!!leftIcon && <Image style={styles.leftIcon} source={leftIcon} />}
-      <Text style={styles.title}>{title}</Text>
+      <Text style={[styles.title, isOutlined && { color: AppTheme.colors.SecondaryText }]}>{title}</Text>
 
     </TouchableOpacity>
   )
