@@ -6,6 +6,12 @@ import google from "./auth/google.png";
 import checkCircle from "./auth/check_circle.png";
 import inactiveCheckCircle from "./auth/inactive_check_circle.png";
 
+import edit from "./bottomTab/edit.png";
+import home from "./bottomTab/home.png";
+import notification from "./bottomTab/notification.png";
+import profile from "./bottomTab/profile.png";
+import scan from "./bottomTab/scan.png";
+
 const authIcons = {
   message,
   lock,
@@ -16,4 +22,12 @@ const authIcons = {
   inactiveCheckCircle,
 };
 
-export { authIcons };
+const bottomTabIcons = {
+  edit,
+  home,
+  notification,
+  profile,
+  scan,
+};
+
+export { authIcons, bottomTabIcons };

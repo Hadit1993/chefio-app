@@ -1,7 +1,12 @@
 import onboarding from "./onboarding/onboarding.png";
+import splashLogo from "./splash/splash_logo.png";
 
 const onboardingImages = {
   onboarding,
 };
 
-export { onboardingImages };
+const splashImages = {
+  splashLogo,
+};
+
+export { onboardingImages, splashImages };
