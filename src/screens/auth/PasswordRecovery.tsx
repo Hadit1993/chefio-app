@@ -5,7 +5,8 @@ import signinStyles from '../../styles/screens/auth/signin.style'
 import { H1, P2 } from '../../components/common/AppText'
 import EmailTextField from '../../components/auth/EmailTextField'
 import Button from '../../components/common/Button'
-import { useAuthNavigation, VERIFICATION_CODE } from '../../navigation/AuthStack'
+import { useAuthNavigation } from '../../navigation/AuthStack'
+import { VERIFICATION_CODE } from '../../navigation/routes'
 
 
 const PasswordRecovery = () => {

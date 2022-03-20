@@ -8,13 +8,9 @@ import { ParamListBase, RouteProp, useNavigation, useRoute } from "@react-naviga
 import VerificationCode from "../screens/auth/VerificationCode";
 import PasswordRecovery from "../screens/auth/PasswordRecovery";
 import ResetPassword from "../screens/auth/ResetPassword";
+import { ON_BOARDING, SIGNIN, SIGNUP, VERIFICATION_CODE, PASSWORD_RECOVERY, RESET_PASSWORD } from "./routes";
 
-export const ON_BOARDING = 'onboarding'
-export const SIGNIN = 'signin'
-export const SIGNUP = 'signup'
-export const VERIFICATION_CODE = 'verificationCode'
-export const PASSWORD_RECOVERY = 'passwordRecovery'
-export const RESET_PASSWORD = 'resetPassword'
+
 
 
 interface AuthParamList extends ParamListBase {

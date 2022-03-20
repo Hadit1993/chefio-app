@@ -5,13 +5,15 @@ import React, { useCallback, useRef, useState } from 'react'
 import { H1, H3, P2 } from '../../components/common/AppText'
 import { authIcons } from '../../../assets/icons'
 import Button from '../../components/common/Button'
-import { PASSWORD_RECOVERY, SIGNUP, useAuthNavigation, VERIFICATION_CODE } from '../../navigation/AuthStack'
+
 import styles from '../../styles/screens/auth/signin.style'
 import { useFocusEffect } from '@react-navigation/native'
 import ScreenWrapper from '../../components/common/ScreenWrapper'
 import EmailTextField from '../../components/auth/EmailTextField'
 import PasswordTextFiled from '../../components/auth/PasswordTextFiled'
 import useKeyboardShowListener from '../../utils/hooks/useKeyboardShowListener'
+import { useAuthNavigation } from '../../navigation/AuthStack'
+import { SIGNUP, VERIFICATION_CODE, PASSWORD_RECOVERY } from '../../navigation/routes'
 
 
 const Signin = () => {

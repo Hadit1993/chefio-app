@@ -1,12 +1,12 @@
 
-
 import { Image, ImageSourcePropType, Text, TouchableOpacity, View } from 'react-native'
 import React, { FC } from 'react'
 
 import styles from '../../styles/components/common/tabBar.style'
 import { bottomTabIcons } from '../../../assets/icons'
+import { HOME, UPLOAD, SCAN, NOTIFICATION, PROFILE } from '../../navigation/routes'
 
-import { HOME, NOTIFICATION, PROFILE, SCAN, UPLOAD } from '../../navigation/MainTab'
+
 
 type MenuData = { icon: ImageSourcePropType, label: string }
 
@@ -25,12 +25,13 @@ type Props = {
 }
 
 const TabBarItem: FC<Props> = ({ route, navigation, color }) => {
+
  return (
   <View style={styles.tabBarItem}>
    {route === SCAN ? (
     <View style={styles.scanContainer}>
-     <TouchableOpacity style={styles.ScanButton} onPress={() => navigation.navigate(SCAN)}>
-      <Image style={styles.icon} source={bottomTabIcons.scan} />
+     <TouchableOpacity style={styles.ScanButton} onPress={() => navigation.navigate(route)}>
+      <Image style={styles.icon} source={menuMapping[route].icon} />
      </TouchableOpacity>
 
      <Text style={[styles.label, { color, marginTop: 20 }]}>{menuMapping[route].label}</Text>

@@ -1,6 +1,6 @@
 
 
-import { Image, StatusBar, View } from 'react-native'
+import { Image, View } from 'react-native'
 import React from 'react'
 
 import Button from '../../components/common/Button'
@@ -21,7 +21,7 @@ const Onboarding = () => {
  return (
   <ScreenWrapper>
 
-   <StatusBar backgroundColor='white' barStyle='dark-content' />
+
    <Image style={styles.image} source={onboardingImages.onboarding} />
 
    <H1 style={styles.title}>
