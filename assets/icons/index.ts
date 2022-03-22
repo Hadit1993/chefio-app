@@ -11,6 +11,11 @@ import notification from "./bottomTab/notification.png";
 import profile from "./bottomTab/profile.png";
 import scan from "./bottomTab/scan.png";
 import search from "./main/search.png";
+import arrowLeft from "./main/arrow_left.png";
+import close from "./main/close.png";
+import filter from "./main/filter.png";
+import timeCircle from "./main/time_circle.png";
+import arrowUpward from "./main/arrow_upward.png";
 
 const authIcons = {
   message,
@@ -32,6 +37,11 @@ const bottomTabIcons = {
 
 const mainIcons = {
   search,
+  arrowLeft,
+  close,
+  filter,
+  timeCircle,
+  arrowUpward,
 };
 
 export { authIcons, bottomTabIcons, mainIcons };

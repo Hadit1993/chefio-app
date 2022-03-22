@@ -1,12 +1,12 @@
 import { ImageSourcePropType } from "react-native";
 import { mainImages } from "../../assets/images";
-import { categories, Category } from "./categories";
+import { RecipeType, RecipeTime } from "./categories";
 
-export interface RecipeType {
+export interface Recipe {
   id: number;
   name: string;
-  category: Category;
-  time: "<10" | "30" | ">60";
+  type: RecipeType;
+  time: RecipeTime;
   image: ImageSourcePropType;
   owner: {
     name: string;
@@ -14,11 +14,11 @@ export interface RecipeType {
   };
 }
 
-export const recipes: RecipeType[] = [
+export const recipes: Recipe[] = [
   {
     id: 1,
     name: "Pancake",
-    category: categories[1],
+    type: "Food",
     time: ">60",
     image: mainImages.pancake1,
     owner: {
@@ -29,7 +29,7 @@ export const recipes: RecipeType[] = [
   {
     id: 2,
     name: "Salad",
-    category: categories[1],
+    type: "Food",
     time: ">60",
     image: mainImages.salad1,
     owner: {
@@ -40,7 +40,7 @@ export const recipes: RecipeType[] = [
   {
     id: 3,
     name: "Pancake",
-    category: categories[1],
+    type: "Food",
     time: ">60",
     image: mainImages.pancake2,
     owner: {
@@ -51,7 +51,7 @@ export const recipes: RecipeType[] = [
   {
     id: 4,
     name: "Salad",
-    category: categories[1],
+    type: "Food",
     time: ">60",
     image: mainImages.salad2,
     owner: {

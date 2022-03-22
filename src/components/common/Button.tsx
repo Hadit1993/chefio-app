@@ -9,10 +9,11 @@ interface Props {
   isOutlined?: boolean,
   color?: string,
   style?: StyleProp<ViewStyle>,
-  leftIcon?: ImageSourcePropType
+  leftIcon?: ImageSourcePropType,
+  labelColor?: string
 }
 
-const Button: FC<Props> = ({ title, onPress, isOutlined, color, style, leftIcon }) => {
+const Button: FC<Props> = ({ title, onPress, isOutlined, color, style, leftIcon, labelColor }) => {
   return (
     <TouchableOpacity onPress={onPress} style={[styles.container, {
       borderWidth: isOutlined ? 2 : 0,
@@ -22,7 +23,7 @@ const Button: FC<Props> = ({ title, onPress, isOutlined, color, style, leftIcon 
         : (color || AppTheme.colors.Primary)
     }, style]}>
       {!!leftIcon && <Image style={styles.leftIcon} source={leftIcon} />}
-      <Text style={[styles.title, isOutlined && { color: AppTheme.colors.SecondaryText }]}>{title}</Text>
+      <Text style={[styles.title, !!(isOutlined || labelColor) && { color: labelColor || AppTheme.colors.SecondaryText }]}>{title}</Text>
 
     </TouchableOpacity>
   )

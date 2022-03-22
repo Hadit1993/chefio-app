@@ -1,83 +1,56 @@
 
-
-import { FlatList, StyleSheet, View } from 'react-native'
-import React from 'react'
+import { FlatList, TouchableWithoutFeedback, View } from 'react-native'
+import React, { useRef, useState } from 'react'
 import ScreenWrapper from '../../components/common/ScreenWrapper'
-import AppTheme from '../../../assets/theme'
 import TextField from '../../components/common/TextField'
 import { mainIcons } from '../../../assets/icons'
-import CategorySection from '../../components/main/CategorySection'
+import CategorySection from '../../components/main/home/CategorySection'
 import { recipes } from '../../data/recipes'
-import Recipe from '../../components/main/Recipe'
+import RecipeComponent from '../../components/main/home/RecipeComponent'
+import SearchModal, { ModalRef } from '../../modals/main/SearchModal'
+import styles from '../../styles/screens/main/home.style'
+import Divider from '../../components/main/Divider'
+import { RecipeType } from '../../data/categories'
 
 const Home = () => {
- return (
-  <ScreenWrapper>
+  const searchModal = useRef<ModalRef>(null)
+  const [recipeType, setRecipeType] = useState<RecipeType>('All')
 
-   <View style={styles.filterSection}>
-    <TextField
-     editable={false}
-     placeholder='Search'
-     containerStyle={styles.searchInputContainer}
-     leftIcon={mainIcons.search}
-    />
-    <CategorySection onSelect={(category) => { }} />
-   </View>
-   <View style={styles.divider} />
+  const onRecipeTypeSelected = (type: RecipeType) => setRecipeType(type)
+  const openModal = () => searchModal.current?.open()
 
-
-
-   <FlatList
-
-    contentContainerStyle={styles.contentContainerStyle}
-    data={recipes}
-    keyExtractor={(item) => item.id.toString()}
-    renderItem={({ item }) => (<Recipe {...item} />)}
-    numColumns={2}
-    columnWrapperStyle={styles.columnWrapperStyle}
-    ItemSeparatorComponent={ItemSeparatorComponent}
-   />
-
-
-
-
-  </ScreenWrapper>
- )
+  return (
+    <ScreenWrapper>
+      <View style={styles.filterSection}>
+        <TouchableWithoutFeedback onPress={openModal}>
+          <View>
+            <TextField
+              editable={false}
+              placeholder='Search'
+              containerStyle={styles.searchInputContainer}
+              leftIcon={mainIcons.search}
+            />
+          </View>
+        </TouchableWithoutFeedback>
+        <CategorySection
+          selected={recipeType}
+          onSelect={onRecipeTypeSelected} />
+      </View>
+      <Divider />
+      <FlatList
+        contentContainerStyle={styles.contentContainerStyle}
+        data={recipes}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={({ item }) => (<RecipeComponent {...item} />)}
+        numColumns={2}
+        columnWrapperStyle={styles.columnWrapperStyle}
+        ItemSeparatorComponent={ItemSeparatorComponent}
+      />
+      <SearchModal ref={searchModal} onSearch={(query) => { }} />
+    </ScreenWrapper>
+  )
 }
 export default Home
 
-const ItemSeparatorComponent = () => <View style={styles.itemSeparatorComponent} />
+export const ItemSeparatorComponent = () => <View style={styles.itemSeparatorComponent} />
 
-const styles = StyleSheet.create({
- filterSection: {
-  paddingHorizontal: 24,
-  paddingTop: 16, paddingBottom: 24
- },
- searchInputContainer: {
-  marginTop: 16,
-  backgroundColor: AppTheme.colors.form,
-  borderWidth: 0,
-  marginBottom: 24
- },
-
- divider: {
-  width: '100%',
-  height: 8,
-  backgroundColor: AppTheme.colors.form,
-
- },
-
-
-
- contentContainerStyle: {
-  padding: 24
- },
- columnWrapperStyle: {
-  justifyContent: 'space-between',
- },
- itemSeparatorComponent: { height: 32 }
-
-
-
-
-})

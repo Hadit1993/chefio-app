@@ -2,12 +2,12 @@
 
 import { Image, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import React, { FC } from 'react'
-import { RecipeType } from '../../data/recipes'
-import { H2, Small } from '../common/AppText'
-import { mainImages } from '../../../assets/images'
-import AppTheme from '../../../assets/theme'
+import { Recipe } from '../../../data/recipes'
+import { H2, Small } from '../../common/AppText'
+import { mainImages } from '../../../../assets/images'
+import AppTheme from '../../../../assets/theme'
 
-const Recipe: FC<RecipeType> = (props) => {
+const RecipeComponent: FC<Recipe> = (props) => {
  return (
   <View>
    <View style={styles.row}>
@@ -24,13 +24,13 @@ const Recipe: FC<RecipeType> = (props) => {
     </TouchableWithoutFeedback>
    </View>
    <H2>{props.name}</H2>
-   <Small style={styles.description}>{`${props.category.label} • ${props.time} mins`}</Small>
+   <Small style={styles.description}>{`${props.type} • ${props.time} mins`}</Small>
 
   </View>
  )
 }
 
-export default Recipe
+export default RecipeComponent
 
 const styles = StyleSheet.create({
  row: {
@@ -73,5 +73,6 @@ const styles = StyleSheet.create({
  description: {
   marginTop: 8,
   color: AppTheme.colors.SecondaryText
- }
+ },
+
 })

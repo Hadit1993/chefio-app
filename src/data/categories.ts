@@ -1,9 +1,5 @@
-export interface Category {
-  id: number;
-  label: string;
-}
-export const categories: Category[] = [
-  { id: 1, label: "All" },
-  { id: 2, label: "Food" },
-  { id: 3, label: "Drink" },
-];
+export type RecipeType = "All" | "Food" | "Drink";
+export type RecipeTime = "<10" | "30" | ">60";
+
+export const recipetypes: RecipeType[] = ["All", "Food", "Drink"];
+export const recipetimes: RecipeTime[] = ["<10", "30", ">60"];

@@ -1,4 +1,4 @@
-import { Dimensions, StyleSheet } from "react-native";
+import { Dimensions, ImageStyle, StyleProp, StyleSheet } from "react-native";
 
 type FontFamily =
   | "Inter-Black"
@@ -73,12 +73,15 @@ const textStyles = StyleSheet.create({
 const screenWidth = Dimensions.get("window").width;
 const screenHeight = Dimensions.get("window").height;
 
+const iconStyle = { width: 24, height: 24 };
+
 const AppTheme = {
   colors,
   textStyles,
   getFont,
   screenWidth,
   screenHeight,
+  iconStyle,
 };
 
 export default AppTheme;
