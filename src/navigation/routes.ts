@@ -15,3 +15,8 @@ export const UPLOAD = "upload";
 export const SCAN = "scan";
 export const NOTIFICATION = "notification";
 export const PROFILE = "profile";
+
+// --- upload ---
+
+export const UPLOAD_FIRST_STEP = "uploadFirstStep";
+export const UPLOAD_SECOND_STEP = "uploadSecondStep";

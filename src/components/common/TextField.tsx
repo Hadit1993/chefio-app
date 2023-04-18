@@ -1,4 +1,4 @@
-import { Image, ImageSourcePropType, NativeSyntheticEvent, StyleProp, TextInput, TextInputFocusEventData, TextInputProps, TouchableWithoutFeedback, View, ViewStyle } from 'react-native'
+import { Image, ImageSourcePropType, LayoutChangeEvent, NativeSyntheticEvent, StyleProp, TextInput, TextInputFocusEventData, TextInputProps, TouchableWithoutFeedback, View, ViewStyle } from 'react-native'
 import React, { FC, forwardRef, RefObject, useMemo, useState } from 'react'
 import AppTheme from '../../../assets/theme'
 import { Small } from './AppText'
@@ -14,10 +14,13 @@ interface TextFieldProps {
   rightIconOnPress?: () => void,
   containerStyle?: StyleProp<ViewStyle>,
   isVerificationCode?: boolean,
-  disableFocusEffect?: boolean
+  disableFocusEffect?: boolean,
+  containerOnLayout?: ((event: LayoutChangeEvent) => void)
 }
 
-const TextField = forwardRef<TextInput, TextInputProps & TextFieldProps>((props, ref) => {
+export type InputProps = TextInputProps & TextFieldProps
+
+const TextField = forwardRef<TextInput, InputProps>((props, ref) => {
 
   const [isFocused, setFocused] = useState(false)
   const borderColor = useMemo(() => (props.isInvalid ? 'red' : isFocused && !props.disableFocusEffect ? AppTheme.colors.Primary : AppTheme.colors.Outline), [isFocused, props.isInvalid])
@@ -33,7 +36,8 @@ const TextField = forwardRef<TextInput, TextInputProps & TextFieldProps>((props,
 
   return (
     <>
-      <View style={[styles.container, { borderColor, borderWidth }, props.containerStyle]}>
+      <View onLayout={props.containerOnLayout}
+        style={[styles.container, { borderColor, borderWidth }, props.containerStyle]}>
         {props.leftIcon &&
           <Image
             style={[styles.leftIcon, { tintColor }]}

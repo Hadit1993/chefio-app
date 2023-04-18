@@ -9,6 +9,7 @@ import user1 from "./main/user1.png";
 import user2 from "./main/user2.png";
 import user3 from "./main/user3.png";
 import user4 from "./main/user4.png";
+import placeholder from "./main/placeholder.png";
 
 const onboardingImages = {
   onboarding,
@@ -28,6 +29,7 @@ const mainImages = {
   user2,
   user3,
   user4,
+  placeholder,
 };
 
 export { onboardingImages, splashImages, mainImages };

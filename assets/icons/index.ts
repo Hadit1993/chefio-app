@@ -16,6 +16,9 @@ import close from "./main/close.png";
 import filter from "./main/filter.png";
 import timeCircle from "./main/time_circle.png";
 import arrowUpward from "./main/arrow_upward.png";
+import drag from "./main/drag.png";
+import plus from "./main/plus.png";
+import camera from "./main/camera.png";
 
 const authIcons = {
   message,
@@ -42,6 +45,9 @@ const mainIcons = {
   filter,
   timeCircle,
   arrowUpward,
+  drag,
+  plus,
+  camera,
 };
 
 export { authIcons, bottomTabIcons, mainIcons };
