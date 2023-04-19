@@ -1,27 +1,45 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Text, TouchableOpacity } from "react-native";
 import AppTheme from "../../../../assets/theme";
+import styled, { css } from "styled-components/native";
 
-const buttonStyles = StyleSheet.create({
-  container: {
-    height: 56,
-    borderRadius: 32,
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
-  },
+export const ButtonContainerTag = styled(TouchableOpacity)<{
+  isOutlined?: boolean;
+  color?: string;
+}>`
+  height: 56px;
+  border-radius: 32px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  ${({ isOutlined, color }) =>
+    isOutlined
+      ? css`
+          border: 2px solid ${AppTheme.colors.Outline};
+        `
+      : css`
+          background-color: ${color ?? AppTheme.colors.Primary};
+        `}
+`;
 
-  title: {
-    color: "white",
-    fontFamily: AppTheme.getFont("Inter-Bold"),
-    fontSize: 15,
-    lineHeight: 18.15,
-    letterSpacing: 0.7,
-  },
-  leftIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 4,
-  },
-});
+export const ButtonTitleTag = styled.Text<{
+  isOutlined?: boolean;
+  labelColor?: string;
+}>`
+  color: white;
+  font-family: ${AppTheme.getFont("Inter-Bold")};
+  font-size: 15px;
+  line-height: 18.15px;
+  letter-spacing: 0.7px;
 
-export default buttonStyles;
+  ${({ isOutlined, labelColor }) =>
+    (isOutlined || labelColor) &&
+    css`
+      color: ${labelColor || AppTheme.colors.SecondaryText};
+    `}
+`;
+
+export const ButtonLeftIconTag = styled.Image`
+  width: 24px;
+  height: 24px;
+  margin-right: 4px;
+`;
